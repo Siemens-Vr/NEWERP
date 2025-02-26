@@ -2,6 +2,7 @@ import { createContext, useState, useEffect } from "react";
 import jwtDecode from "jwt-decode";
 import axios from "axios";
 import { useRouter } from "next/router";
+import { config } from "@/config";
 
 export const AuthContext = createContext(null);
 
@@ -31,7 +32,7 @@ export const AuthProvider = ({ children }) => {
             return; // Don't redirect automatically, let the protected route handle it
           }
       
-          const { data } = await axios.get("http://localhost:10600/api/auth/profile", {
+          const { data } = await axios.get(`${config.baseURL}/api/auth/profile`, {
             headers: { Authorization: `Bearer ${token}` },
           });
           console.log(data)
@@ -51,7 +52,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const { data } = await axios.post("http://localhost:10600/api/auth/login", { 
+      const { data } = await axios.post(`${config.baseURL}/api/auth/login`, { 
         email, 
         password 
       });
