@@ -4,6 +4,8 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { config } from "@/config";
 
+console.log(config.baseURL)
+
 export const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
