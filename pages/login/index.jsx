@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { AuthContext } from "@/context/AuthContext";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import styles from "@/styles/login/login.module.css";
+import Link from "next/link";
 
 export default function Login() {
   const context = useContext(AuthContext);
@@ -74,15 +75,15 @@ export default function Login() {
 
         <p className={styles.textCenter}>
           Forgot password?{" "}
-          <a href="/forgotPassword" className={styles.link}>
+          <Link href="/forgotPassword" className={styles.link}>
             Reset here
-          </a>
+          </Link>
         </p>
         <p className={styles.textCenter}>
           Don't have an account?{" "}
-          <a href="/signup" className={styles.link}>
+          <Link href="/signup" className={styles.link}>
             Sign up
-          </a>
+          </Link>
         </p>
       </form>
     </div>
